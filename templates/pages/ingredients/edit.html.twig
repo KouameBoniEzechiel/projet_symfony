@@ -1,0 +1,41 @@
+{% extends 'base.html.twig' %}
+
+{% block title %} ObrigadoRecipe - Modifier ingredient {% endblock %}
+
+{% block body %}
+
+<div class="mt-4 container">
+<h1 class="text-center">Modification de l'ingredient </h1>
+
+
+{{ form_start(form) }}
+
+    <div class="form-group">
+            {{ form_label(form.nom) }}
+            {{ form_widget(form.nom) }}
+            <div class="form-error">
+            {{ form_errors(form.nom) }}
+            </div>
+        </div>
+
+    <div class="form-group">
+            {{ form_label(form.price) }}
+            {{ form_widget(form.price) }}
+
+            <div class="form-error">
+            {{ form_errors(form.price) }}
+            </div>
+
+        </div>
+
+        <div class="form-group">
+            {{ form_row(form.submit) }}
+        </div>
+
+
+{{ form_end(form) }}
+
+
+</div>
+    
+{% endblock %}
