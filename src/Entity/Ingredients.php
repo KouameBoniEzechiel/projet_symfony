@@ -37,6 +37,10 @@ class Ingredients
         $this->createdAt = new \DateTimeImmutable(datetime: 'now', timezone: new \DateTimeZone('Africa/Abidjan'));
     }
 
+    public function __toString(){
+        return $this->nom;
+    }
+    
     public function getId(): ?int
     {
         return $this->id;

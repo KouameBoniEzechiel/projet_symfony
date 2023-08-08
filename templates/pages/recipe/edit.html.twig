@@ -1,0 +1,121 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}
+	ObrigadoRecipe - Modification de recettes
+{% endblock %}
+
+{% block body %}
+
+	<div class="mt-2 container">
+		<h1 class="text-center">Modification d'une recette</h1>
+
+    </div>
+
+	<div class="container mt-4">
+
+		{{ form_start(form) }}
+
+		<div class="row">
+
+			<div class="col-md-6">
+
+
+				<div class="form-group">
+					{{ form_label(form.nom) }}
+					<div class="col-auto">
+						<span id="name_help" class="form-text">
+							Must be 8-20 characters long.
+						</span>
+					</div>
+					{{ form_widget(form.nom) }}
+					<div class="form-error">
+						{{ form_errors(form.nom) }}
+					</div>
+				</div>
+
+				<div class="form-group">
+					{{ form_label(form.price) }}
+					{{ form_widget(form.price) }}
+					<div class="form-error">
+						{{ form_errors(form.price) }}
+					</div>
+				</div>
+
+				<div class="form-group">
+					{{ form_label(form.time) }}
+					{{ form_widget(form.time) }}
+					<div class="form-error">
+						{{ form_errors(form.time) }}
+					</div>
+				</div>
+
+				<div class="form-group">
+					{{ form_label(form.nbr_personne) }}
+					{{ form_widget(form.nbr_personne) }}
+					<div class="form-error">
+						{{ form_errors(form.nbr_personne) }}
+					</div>
+				</div>
+
+			</div>
+
+			<div class="col-md-6">
+
+				<div class="form-group">
+					{{ form_label(form.difficulty) }}
+                    <div class="col-auto">
+						<span id="name_help" class="form-text">
+							Must be 1-20 characters long.
+						</span>
+					</div>
+					{{ form_widget(form.difficulty) }}
+					<div class="form-error">
+						{{ form_errors(form.difficulty) }}
+					</div>
+				</div>
+
+                <div class="form-group">
+					{{ form_label(form.isFavorite) }}
+					{{ form_widget(form.isFavorite) }}
+					<div class="form-error">
+						{{ form_errors(form.isFavorite) }}
+					</div>
+				</div>
+
+                <div class="form-group">
+                {{ form_label(form.description) }}
+                {{ form_widget(form.description) }}
+                <div class="form-error">
+                    {{ form_errors(form.description) }}
+                </div>
+            </div>
+
+                <div class="form-group">
+					{{ form_label(form.ingredients) }}
+					{{ form_widget(form.ingredients) }}
+					<div class="form-error">
+						{{ form_errors(form.ingredients) }}
+					</div>
+				</div>
+  
+                
+
+
+			</div>
+
+
+		</div>
+
+    </div>
+
+		<div class="form-group d-flex justify-content-center navigation">
+			{{ form_row(form.submit) }}
+		</div>
+
+
+		{{ form_end(form) }}
+
+
+	</div>
+
+{% endblock %}

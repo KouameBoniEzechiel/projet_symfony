@@ -1,0 +1,45 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}
+    ObrigadoRecipe - Informations Recette {{ recipes[0].nom }}
+{% endblock %}
+
+{% block body %}
+
+{% for recipe in recipes %}
+
+    <div class="container mt-4">
+        <div class="row">
+            <div class="col-md-8 mx-auto">
+                <div class="card">
+                    <div class="card-body">
+                        <h1 class="card-title text-center">Recette N°{{recipe.id}}: {{ recipe.nom }}</h1>
+
+                        <div class="mb-4">
+                            <h2>Informations :</h2>
+                            <ul class="list-group">
+                                <li class="list-group-item">Temps pour la préparation : {{ recipe.time }} minute(s)</li>
+                                <li class="list-group-item">Nombre de personnes : {{ recipe.nbrPersonne is null ? 'Non renseigné' : recipe.nbrPersonne~" personne(s)" }}</li>
+                                <li class="list-group-item">Difficulté pour la préparation (/20) : {{ recipe.difficulty is null ? 'Non renseigné' : recipe.difficulty~"/20"}}</li>
+                                <li class="list-group-item">Prix des ingrédients : {{ recipe.price }} FCFA</li>
+                                <li class="list-group-item">Date d'ajout de la recette : {{ recipe.createdAt|date('d/m/Y') }}</li>
+                            </ul>
+                        </div>
+
+                        <h2>Ingrédients :</h2>
+                        <ul class="list-group mb-4">
+                            {% for ingredient in recipe.ingredients %}
+                                <li class="list-group-item">{{ ingredient }}</li>
+                            {% endfor %}
+                        </ul>
+
+                        <h2>Description :</h2>
+                        <p class="card-text">{{ recipe.description }}</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endfor %}
+
+{% endblock %}
